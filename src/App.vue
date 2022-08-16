@@ -1,31 +1,66 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/my-page">MyPage</router-link>
-  </nav>
-  <router-view/>
+<div>
+
+  <!-- <div class="nav__bar">
+    <router-link to="/" class="nav__logo nav__link">GeekTwitter</router-link>
+    <div class="nav__items">
+      <router-link to="/about" class="nav__item nav_link">About</router-link>
+      <router-link to="/my-page" class="nav__item nav_link">MyPage</router-link>
+    </div>
+    <router-view />
+
+  </div> -->
+  <NavBar />
+  <router-view />
+</div>
 </template>
 
+<script>
+import NavBar from "@/components/NavBar.vue";
+export default {
+  components: {
+    NavBar,
+}
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  box-sizing: border-box;
 }
-
-nav {
-  padding: 30px;
+body {
+  margin: 0;
 }
-
-nav a {
+.nav__bar {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: black;
+}
+.nav__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #eee;
+  text-decoration: none;
+}
+.nav__link:visited {
+  color: #eee;
+}
+.nav__link:hover {
   font-weight: bold;
-  color: #2c3e50;
+  color: #fff;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.nav__logo {
+  width: 130px;
+}
+.nav__items {
+  display: flex;
+}
+.nav_item {
+  width: 100px;
+  border-left: 1px solid #eee;
 }
 </style>
